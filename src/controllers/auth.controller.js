@@ -123,7 +123,9 @@ module.exports = {
         await redis.connect();
         await redis.set(`Blacklist:${accessToken}`, accessToken, expTime);
 
+        // console.log(await redis.get(`Blacklist:${accessToken}`));
         await redis.close();
+
         res.clearCookie("sessionId", {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
