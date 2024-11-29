@@ -1,10 +1,4 @@
-const {
-    Product,
-    Category,
-    Review,
-    User,
-    Favorite,
-} = require("../models/index");
+const { Product, Category, Review, User } = require("../models/index");
 const { Sequelize, Op } = require("sequelize");
 
 module.exports = {
@@ -35,7 +29,7 @@ module.exports = {
                                     "totalReviews",
                                 ],
                             ],
-                            exclude: ["created_at", "updated_at", "product_id"],
+                            exclude: ["created_at", "updated_at", "user_id"],
                         },
                         required: false,
                     },
@@ -119,7 +113,7 @@ module.exports = {
                             "isFavorite",
                         ],
                     ],
-                    exclude: ["created_at", "updated_at", "product_id"],
+                    exclude: ["created_at", "updated_at", "user_id"],
                 },
 
                 where: {

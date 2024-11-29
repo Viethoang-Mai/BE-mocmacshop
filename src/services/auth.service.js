@@ -1,4 +1,3 @@
-const { Model } = require("sequelize");
 const { User, Cart } = require("../models/index");
 
 module.exports = {

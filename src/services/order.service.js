@@ -13,6 +13,19 @@ module.exports = {
         listCart,
         total_price,
     }) => {
+        console.log(
+            id,
+            address,
+            phone_number,
+            city,
+            city_selected,
+            country,
+            note,
+            payment_method,
+            listCart,
+            total_price
+        );
+
         const transaction = await sequelize.transaction();
         try {
             for (const item of listCart) {

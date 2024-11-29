@@ -1,7 +1,6 @@
 const { successResponse, errorResponse } = require("../utils/response");
 const { Order, OrderItem, Product } = require("../models/index");
 const { createOrderService } = require("../services/order.service");
-const { where } = require("sequelize");
 module.exports = {
     createOrder: async (req, res) => {
         try {

@@ -114,7 +114,7 @@ module.exports = {
                                     "isFavorite",
                                 ],
                             ],
-                            exclude: ["created_at", "updated_at", "product_id"],
+                            exclude: ["created_at", "updated_at", "user_id"],
                         },
                     },
                 ],
