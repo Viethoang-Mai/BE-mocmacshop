@@ -3,7 +3,7 @@ const authController = require("../controllers/auth.controller");
 const authApiMiddleware = require("../middlewares/authApiMiddleware");
 const favoriteController = require("../controllers/favorite.controller");
 const userController = require("../controllers/user.controller");
-const cartController = require("../controllers/Cart.controller");
+const cartController = require("../controllers/cart.controller");
 const orderController = require("../controllers/order.controller");
 
 const routes = express.Router();
