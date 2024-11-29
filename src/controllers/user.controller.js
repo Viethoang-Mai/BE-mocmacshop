@@ -89,7 +89,6 @@ module.exports = {
         try {
             const { id } = req.user;
             const { password, email, confirmEmail } = req.body;
-            console.log(id, password, email, confirmEmail);
 
             const user = await changeEmail(id, password, email, confirmEmail);
             const userData = user.toJSON();

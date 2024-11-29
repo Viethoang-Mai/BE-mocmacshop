@@ -46,7 +46,8 @@ module.exports = {
             res.cookie("sessionId", sessionId, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
-                sameSite: "Strict",
+                sameSite:
+                    process.env.NODE_ENV === "production" ? "None" : "Lax",
                 maxAge: 100 * 60 * 60 * 1000,
             });
 
@@ -126,7 +127,7 @@ module.exports = {
         res.clearCookie("sessionId", {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "Strict",
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
         });
         return successResponse({
             res,
@@ -177,7 +178,6 @@ module.exports = {
         try {
             const { token, expires_in } = req.body;
             const user = await loginGoogleService(token);
-            console.log(user);
 
             const accessToken = createAccessToken(
                 { userId: user.id },
@@ -197,7 +197,8 @@ module.exports = {
             res.cookie("sessionId", sessionId, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
-                sameSite: "Strict",
+                sameSite:
+                    process.env.NODE_ENV === "production" ? "None" : "Lax",
                 maxAge: 100 * 60 * 60 * 1000,
             });
 

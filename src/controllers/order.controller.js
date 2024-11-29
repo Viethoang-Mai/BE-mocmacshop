@@ -58,8 +58,6 @@ module.exports = {
         }
     },
     getOrders: async (req, res) => {
-        console.log(req.user.id);
-
         try {
             const orders = await Order.findAll({
                 where: { user_id: req.user.id },
@@ -82,7 +80,6 @@ module.exports = {
         try {
             const { id: user_id } = req.user;
             const { id } = req.params;
-            console.log(id, user_id);
 
             const order = await Order.findOne({
                 where: { id, user_id },

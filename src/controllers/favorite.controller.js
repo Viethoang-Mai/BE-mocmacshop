@@ -73,7 +73,6 @@ module.exports = {
     getFavorites: async (req, res) => {
         try {
             const { id: user_id } = req.user;
-            console.log(req.user.id);
 
             const favorites = await Favorite.findAll({
                 where: { user_id },
