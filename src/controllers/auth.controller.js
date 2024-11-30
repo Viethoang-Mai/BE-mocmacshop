@@ -45,9 +45,8 @@ module.exports = {
             await redis.close();
             res.cookie("sessionId", sessionId, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === "production",
-                sameSite:
-                    process.env.NODE_ENV === "production" ? "None" : "Lax",
+                secure: true,
+                sameSite: "None",
                 maxAge: 100 * 60 * 60 * 1000,
             });
 
@@ -128,8 +127,8 @@ module.exports = {
 
         res.clearCookie("sessionId", {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+            secure: true,
+            sameSite: "None",
         });
         return successResponse({
             res,
@@ -198,9 +197,8 @@ module.exports = {
 
             res.cookie("sessionId", sessionId, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === "production",
-                sameSite:
-                    process.env.NODE_ENV === "production" ? "None" : "Lax",
+                secure: true,
+                sameSite: "None",
                 maxAge: 100 * 60 * 60 * 1000,
             });
 
