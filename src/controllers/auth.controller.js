@@ -45,8 +45,9 @@ module.exports = {
             await redis.close();
             res.cookie("sessionId", sessionId, {
                 httpOnly: true,
-                secure: true,
-                sameSite: "None",
+                secure: process.env.NODE_ENV === "production",
+                sameSite:
+                    process.env.NODE_ENV === "production" ? "None" : "Lax",
                 maxAge: 100 * 60 * 60 * 1000,
             });
 
@@ -122,13 +123,12 @@ module.exports = {
         await redis.connect();
         await redis.set(`Blacklist:${accessToken}`, accessToken, expTime);
 
-        // console.log(await redis.get(`Blacklist:${accessToken}`));
         await redis.close();
 
         res.clearCookie("sessionId", {
             httpOnly: true,
-            secure: true,
-            sameSite: "None",
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
         });
         return successResponse({
             res,
@@ -197,8 +197,9 @@ module.exports = {
 
             res.cookie("sessionId", sessionId, {
                 httpOnly: true,
-                secure: true,
-                sameSite: "None",
+                secure: process.env.NODE_ENV === "production",
+                sameSite:
+                    process.env.NODE_ENV === "production" ? "None" : "Lax",
                 maxAge: 100 * 60 * 60 * 1000,
             });
 
