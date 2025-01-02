@@ -23,7 +23,6 @@ module.exports = async (req, res, next) => {
         }
         const user = await getUser(userId);
         req.user = user;
-
         req.accessToken = accessToken;
         next();
     } catch (error) {
